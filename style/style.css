@@ -13,11 +13,11 @@
 .bg-pri300{
   background-color: var(--primary-300);
 }
+
 * {
   box-sizing: border-box;
 }
 
 input[type=radio]{
   accent-color: #FF5733;
-
 }

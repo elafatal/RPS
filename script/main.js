@@ -1,8 +1,3 @@
-function getRandomNumber() {
-    const randNumber= Math.random();
-    const scaledRandomNumber = Math.floor(randNumber * 3) + 1;
-    return scaledRandomNumber;
-}
 
 let player_score=0;
 let computer_score=0; 
@@ -15,7 +10,11 @@ const rock= document.getElementById("rock");
 // pc
 const pc=document.getElementById("pc-choosed")
 
-
+function getRandomNumber() {
+    const randNumber= Math.random();
+    const scaledRandomNumber = Math.floor(randNumber * 3) + 1;
+    return scaledRandomNumber;
+}
 
     player.addEventListener("click",(e)=>{
         e.preventDefault();
