@@ -15,12 +15,13 @@ const scissor= document.getElementById("scissor");
 const rock= document.getElementById("rock");
 
 // pc
-const randomNumber=getRandomNumber();
+
 const pc=document.getElementById("pc-choosed")
 
 
 
     player.addEventListener("click",(e)=>{
+        const randomNumber=getRandomNumber();
         e.preventDefault();
         if (paper.checked || rock.checked || scissor.checked){
             switch(randomNumber) {
@@ -48,40 +49,40 @@ const pc=document.getElementById("pc-choosed")
                 player_score++;
             } else if(randomNumber==2){
                 Result.innerText="YOU LOST !";
-                Result.classList=" text-center text-white mt-5 pt-5 text-danger";
+                Result.classList=" text-center mt-5 pt-5 text-danger";
                 computer_score++;
             } else if(randomNumber==3){
                 Result.innerText="YOU WIN !";
-                Result.classList="text-center text-white mt-5 pt-5 text-success";
+                Result.classList="text-center mt-5 pt-5 text-success";
                 player_score++;
             }
         } else if (scissor.checked) {
             if(randomNumber==1){
                 Result.innerText="YOU WIN !";
-                Result.classList="text-center text-white mt-5 pt-5 text-success";
+                Result.classList="text-center mt-5 pt-5 text-success";
                 player_score++;
             }else if(randomNumber==2){
                 Result.innerText="DRAW";
-                Result.classList="text-center text-white mt-5 pt-5 text-warning";
+                Result.classList="text-center mt-5 pt-5 text-warning";
                 computer_score++;
                 player_score++;
             } else if(randomNumber==3){
                 Result.innerText="YOU LOST !";
-                Result.classList="text-center text-white mt-5 pt-5text-danger";
+                Result.classList="text-center mt-5 pt-5text-danger";
                 computer_score++;
             }
             }else if (rock.checked){
                 if(randomNumber==1){
                     Result.innerText="YOU LOST !";
-                    Result.classList="text-center text-white mt-5 pt-5 text-danger";
+                    Result.classList="text-center mt-5 pt-5 text-danger";
                     computer_score++;
                 } else if(randomNumber==2){
                     Result.innerText="YOU WIN !";
-                    Result.classList="text-center text-white mt-5 pt-5 text-success";
+                    Result.classList="text-center mt-5 pt-5 text-success";
                     player_score++;
                 }else  if(randomNumber==3){
                     Result.innerText="DRAW";
-                    Result.classList="text-center text-white mt-5 pt-5 text-warning";
+                    Result.classList="text-center mt-5 pt-5 text-warning";
                     computer_score++;
                     player_score++;
                 }
