@@ -86,7 +86,7 @@ const pc=document.getElementById("pc-choosed")
                     player_score++;
                 }
             } 
-            score.innerText=`Computer: ${computer_score} | Player: ${player_score}`;
+            score.innerText=`You: ${player_score} | Ai: ${computer_score}`;
             rock.checked=false;
             scissor.checked=false;
             paper.checked=false;
