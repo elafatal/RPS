@@ -5,46 +5,22 @@ let player2_score=0;
 
 const score=document.getElementById("score"); 
 const Result=document.getElementById("Result"); 
+const player = document.getElementById("player");
 
-//names
-document.addEventListener('DOMContentLoaded', function() {
-  var player1Name = document.getElementById('player1Name');
-  var player2Name = document.getElementById('player2Name');
-  var hideInputsButton = document.getElementById('hideInputsButton');
+player.addEventListener("click",(e)=>{
+  e.preventDefault();
+  player1_score=0;
+  player2_score=0;
+  player1_move="";
+  player2_move="";
+  score.innerText=`Player1 --- ${player1_score} :  ${player2_score} --- player2`;
+  Result.innerText="START";
+  Result.classList="text-center mt-5 pt-3 text-white "
 
-  // Function to hide inputs
-  function hideInputs() {
-      player1Name.style.display = 'none';
-      player2Name.style.display = 'none';
-      hideInputsButton.style.display = 'none'; 
-  }
-
-
-  player1Name.addEventListener('input', function() {
-      if (player1Name.value.trim()!== '') {
-          hideInputs();
-      }
-  });
-
-  player2Name.addEventListener('input', function() {
-      if (player2Name.value.trim()!== '') {
-          hideInputs();
-      }
-  });
-
-
-  hideInputsButton.addEventListener('click', function() {
-      hideInputs();
-  });
-});
-
+}  )
 //game
 window.addEventListener("keydown", function (e) {
-  if (e.defaultPrevented) {
-    return; 
-  }
     e.preventDefault();
-
     switch (e.key) {
         case "ArrowLeft":
           player2_move="paper";  
@@ -67,6 +43,7 @@ window.addEventListener("keydown", function (e) {
       }
 
     if (player1_move!= "" && player2_move!=""){
+      player.classList="btn btn-outline-light fw-bold btn-lg"
       if(player1_move==="paper"){
           if(player2_move==="paper"){
               Result.innerText="DRAW";
