@@ -3,6 +3,8 @@ let player2_move="";
 let player1_score=0;
 let player2_score=0;
 let winner_score=0;
+// let winner="";
+let gameStarted = false;
 
 const con=document.getElementById("con"); 
 const score=document.getElementById("score"); 
@@ -20,14 +22,18 @@ function hideInputs() {
 }
 
 win3.addEventListener('click', function() {
+  gameStarted = true;
   hideInputs();
   winner_score=3;
+
 });
 win5.addEventListener('click', function() {
+  gameStarted = true;
   hideInputs();
   winner_score=5;
 });
 win7.addEventListener('click', function() {
+  gameStarted = true;
   hideInputs();
   winner_score=7;
   console.log(winner_score);
@@ -44,15 +50,16 @@ player.addEventListener("click",(e)=>{
   score.innerText=`Player1 --- ${player1_score} :  ${player2_score} --- player2`;
   Result.innerText="START";
   Result.classList="text-center mt-5 pt-3 text-white ";
+  player.style.display='none';
   win3.style.display = 'flex';
   win5.style.display = 'flex';
   win7.style.display = 'flex';
 }  )
 
-//game
-window.addEventListener("keydown", function (e) {
+
+  window.addEventListener("keydown", function (e) {
     e.preventDefault();
-    switch (e.key) {
+      switch (e.key) {
         case "ArrowLeft":
           player2_move="paper";  
         break;
@@ -74,54 +81,78 @@ window.addEventListener("keydown", function (e) {
       }
 
     if (player1_move!= "" && player2_move!=""){
-      player.classList="btn btn-outline-light fw-bold btn-lg"
-      if(player1_move==="paper"){
-          if(player2_move==="paper"){
-              Result.innerText="DRAW";
-              Result.classList="text-center mt-5 pt-3 text-warning"  ;
-              
-          } else if(player2_move==="scissor"){
-              Result.innerText="PLAYER 2 WIN";
-              Result.classList="text-center mt-5 pt-3 text-danger"  ;
-              player2_score++;
-          } else if(player2_move==="rock"){
-              Result.innerText="PLAYER 1 WIN";
-              Result.classList="text-center mt-5 pt-3 text-info"  ;
-              player1_score++;
-          }
-      } else if (player1_move==="scissor") {
-          if(player2_move==="scissor"){
-              Result.innerText="DRAW";
-              Result.classList="text-center mt-5 pt-3 text-warning"  ;
-          } else if(player2_move==="rock"){
-              Result.innerText="PLAYER 2 WIN";
-              Result.classList="text-center mt-5 pt-3 text-danger"  ;
-              player2_score++;
-          } else if(player2_move==="paper"){
-              Result.innerText="PLAYER 1 WIN";
-              Result.classList="text-center mt-5 pt-3 text-info"  ;
-              player1_score++;
-          }
-      } else if (player1_move=="rock"){
-          if(player2_move==="rock"){
-              Result.innerText="DRAW";
-              Result.classList="text-center mt-5 pt-3 text-warning"  ;
-          } else if(player2_move==="paper"){
-              Result.innerText="PLAYER 2 WIN";
-              Result.classList="text-center mt-5 pt-3 text-danger"  ;
-              player2_score++;
-          } else if(player2_move==="scissor"){
-              Result.innerText="PLAYER 1 WIN";
-              Result.classList="text-center mt-5 pt-3 text-info"  ;
-              player1_score++;
-          }
+      if (gameStarted) {
+        player.classList="btn btn-outline-light fw-bold btn-lg"
+        if(player1_move==="paper"){
+            if(player2_move==="paper"){
+                Result.innerText="DRAW";
+                Result.classList="text-center mt-5 pt-3 text-warning"  ;
+                
+            } else if(player2_move==="scissor"){
+                Result.innerText="PLAYER 2 WIN";
+                Result.classList="text-center mt-5 pt-3 text-danger"  ;
+                player2_score++;
+            } else if(player2_move==="rock"){
+                Result.innerText="PLAYER 1 WIN";
+                Result.classList="text-center mt-5 pt-3 text-info"  ;
+                player1_score++;
+            }
+        } else if (player1_move==="scissor") {
+            if(player2_move==="scissor"){
+                Result.innerText="DRAW";
+                Result.classList="text-center mt-5 pt-3 text-warning"  ;
+            } else if(player2_move==="rock"){
+                Result.innerText="PLAYER 2 WIN";
+                Result.classList="text-center mt-5 pt-3 text-danger"  ;
+                player2_score++;
+            } else if(player2_move==="paper"){
+                Result.innerText="PLAYER 1 WIN";
+                Result.classList="text-center mt-5 pt-3 text-info"  ;
+                player1_score++;
+            }
+        } else if (player1_move=="rock"){
+            if(player2_move==="rock"){
+                Result.innerText="DRAW";
+                Result.classList="text-center mt-5 pt-3 text-warning"  ;
+            } else if(player2_move==="paper"){
+                Result.innerText="PLAYER 2 WIN";
+                Result.classList="text-center mt-5 pt-3 text-danger"  ;
+                player2_score++;
+            } else if(player2_move==="scissor"){
+                Result.innerText="PLAYER 1 WIN";
+                Result.classList="text-center mt-5 pt-3 text-info"  ;
+                player1_score++;
+            }
+        }
+       
+       
+        score.innerText=`Player1 --- ${player1_score} :  ${player2_score} --- Player2`;
+        player1_move= "";
+        player2_move="";
+        if (player1_score===winner_score) {
+          Result.innerText="FINAL WINNER: Player1 \n press new game button to start again";
+          Result.classList="text-center mt-5 pt-3 text-success"  ;
+          gameStarted=false
+        } else if( player2_score===winner_score){
+          Result.innerText="FINAL WINNER: Player2 \n press new game button to start again";
+          Result.classList="text-center mt-5 pt-3 text-success"  ;
+          gameStarted=false;
+              }
+    }
+        
+  
+        
       }
-      score.innerText=`Player1 --- ${player1_score} :  ${player2_score} --- player2`;
-      player1_move= "";
-      player2_move="";
-  }
-      
+     
+
+    
+
+    
 })
+
+
+//game
+
 
 
 
