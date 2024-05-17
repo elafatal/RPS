@@ -2,11 +2,39 @@ let player1_move="";
 let player2_move="";
 let player1_score=0;
 let player2_score=0;
+let winner_score=0;
 
+const con=document.getElementById("con"); 
 const score=document.getElementById("score"); 
 const Result=document.getElementById("Result"); 
 const player = document.getElementById("player");
+const win3 = document.getElementById("3");
+const win5 = document.getElementById("5");
+const win7= document.getElementById("7");
 
+
+function hideInputs() {
+  win3.style.display = 'none';
+  win5.style.display = 'none';
+  win7.style.display = 'none';
+}
+
+win3.addEventListener('click', function() {
+  hideInputs();
+  winner_score=3;
+});
+win5.addEventListener('click', function() {
+  hideInputs();
+  winner_score=5;
+});
+win7.addEventListener('click', function() {
+  hideInputs();
+  winner_score=7;
+  console.log(winner_score);
+});
+
+
+//start again
 player.addEventListener("click",(e)=>{
   e.preventDefault();
   player1_score=0;
@@ -15,9 +43,12 @@ player.addEventListener("click",(e)=>{
   player2_move="";
   score.innerText=`Player1 --- ${player1_score} :  ${player2_score} --- player2`;
   Result.innerText="START";
-  Result.classList="text-center mt-5 pt-3 text-white "
-
+  Result.classList="text-center mt-5 pt-3 text-white ";
+  win3.style.display = 'flex';
+  win5.style.display = 'flex';
+  win7.style.display = 'flex';
 }  )
+
 //game
 window.addEventListener("keydown", function (e) {
     e.preventDefault();
@@ -48,6 +79,7 @@ window.addEventListener("keydown", function (e) {
           if(player2_move==="paper"){
               Result.innerText="DRAW";
               Result.classList="text-center mt-5 pt-3 text-warning"  ;
+              
           } else if(player2_move==="scissor"){
               Result.innerText="PLAYER 2 WIN";
               Result.classList="text-center mt-5 pt-3 text-danger"  ;
