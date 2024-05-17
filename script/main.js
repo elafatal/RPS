@@ -39,8 +39,6 @@ function getRandomNumber() {
             if(randomNumber==1){
                 Result.innerText="DRAW";
                 Result.classList="text-center mt-5 pt-5 text-warning";
-                computer_score++;
-                player_score++;
             } else if(randomNumber==2){
                 Result.innerText="YOU LOST!";
                 Result.classList=" text-center mt-5 pt-5 text-danger";
@@ -58,8 +56,6 @@ function getRandomNumber() {
             }else if(randomNumber==2){
                 Result.innerText="DRAW";
                 Result.classList="text-center mt-5 pt-5 text-warning";
-                computer_score++;
-                player_score++;
             } else if(randomNumber==3){
                 Result.innerText="YOU LOST!";
                 Result.classList="text-center mt-5 pt-5 text-danger";
@@ -77,8 +73,6 @@ function getRandomNumber() {
                 }else  if(randomNumber==3){
                     Result.innerText="DRAW";
                     Result.classList="text-center mt-5 pt-5 text-warning";
-                    computer_score++;
-                    player_score++;
                 }
             } 
             score.innerText=`You : ${player_score} | ${computer_score} : Ai`;

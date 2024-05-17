@@ -48,8 +48,6 @@ window.addEventListener("keydown", function (e) {
           if(player2_move==="paper"){
               Result.innerText="DRAW";
               Result.classList="text-center mt-5 pt-3 text-warning"  ;
-              player2_score++;
-              player1_score++;
           } else if(player2_move==="scissor"){
               Result.innerText="PLAYER 2 WIN";
               Result.classList="text-center mt-5 pt-3 text-danger"  ;
@@ -63,8 +61,6 @@ window.addEventListener("keydown", function (e) {
           if(player2_move==="scissor"){
               Result.innerText="DRAW";
               Result.classList="text-center mt-5 pt-3 text-warning"  ;
-              player2_score++;
-              player1_score++;
           } else if(player2_move==="rock"){
               Result.innerText="PLAYER 2 WIN";
               Result.classList="text-center mt-5 pt-3 text-danger"  ;
@@ -78,8 +74,6 @@ window.addEventListener("keydown", function (e) {
           if(player2_move==="rock"){
               Result.innerText="DRAW";
               Result.classList="text-center mt-5 pt-3 text-warning"  ;
-              player2_score++;
-              player1_score++;
           } else if(player2_move==="paper"){
               Result.innerText="PLAYER 2 WIN";
               Result.classList="text-center mt-5 pt-3 text-danger"  ;
